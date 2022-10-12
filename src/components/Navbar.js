@@ -1,26 +1,24 @@
-import React from 'react';
+import React,{useContext} from 'react';
 import { ThemeContext } from '../contexts/ThemeContext';
+import {AuthContext} from '../contexts/AuthContext';
 
 const Navbar = () => {
-  return (
-    <ThemeContext.Consumer>{(context)=>{
 
-      const {isLightTheme,dark,light} = context;
-      const theme = isLightTheme ? light : dark;
+            const {isAuthanticated,toggleAuth} = useContext(AuthContext);
+            const {isLightTheme,dark,light} = useContext(ThemeContext);
+            const theme = isLightTheme ? light : dark;
 
-      return(
-        <nav style={{background:theme.ui,color:theme.syntax,}}>
-        <h1>SSA App</h1>
-        <ul>
-            <li>Anasayfa</li>
-            <li>Hakkımızda</li>
-            <li>İletişim</li>
-        </ul>
-      </nav>
-      )
-
-    }}</ThemeContext.Consumer>
-  )
-}
+            return(
+                <nav style={{background:theme.ui,color:theme.syntax,}}>
+                <h1>SSA App</h1>
+                <div onClick={toggleAuth}>{isAuthanticated ? 'Çıkış Yap' : 'Giriş Yap'}</div>
+                <ul>
+                    <li>Anasayfa</li>
+                    <li>Hakkımızda</li>
+                    <li>İletişim</li>
+                </ul>
+              </nav>
+            )
+  }
 
 export default Navbar

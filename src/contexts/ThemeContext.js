@@ -10,7 +10,7 @@ class ThemeContextProvider extends Component {
         dark:{syntax:"#f5f6fa",ui:"#303952",bg:"#192a56"}
      } 
 
-     toggleTheme = () =>{
+    toggleTheme = () =>{
         this.setState({isLightTheme:!this.state.isLightTheme});
      }
 

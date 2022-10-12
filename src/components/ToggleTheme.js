@@ -1,17 +1,15 @@
-import React,{Component} from "react";
+import React,{useContext} from "react";
 import { ThemeContext } from "../contexts/ThemeContext";
 
-class ToggleTheme extends Component{
+const ToggleTheme = () => {
 
-    static contextType = ThemeContext;
 
-    render(){
-        const {toggleTheme} = this.context;
+        const {toggleTheme} =useContext(ThemeContext);
 
         return(
             <button onClick={toggleTheme} style={{border:'none',borderRadius:'40px'}}>Tema Değiştir</button>
         )
-    }
+    
 }
 
 export default ToggleTheme;
